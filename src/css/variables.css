@@ -1,0 +1,16 @@
+:root {
+  --primary-text-color: #000000;
+  --secondary-text-color: #ffffff;
+  --placeholder-text-color: rgb(189, 189, 189);
+
+  --error-text-color: #ff0000;
+
+  --primary-bg-color: rgb(189, 189, 189);
+  --secondary-bg-color: rgb(32, 44, 55);
+
+  --box-shadow-color: #e7eaf2;
+
+  --placeholder-icon-color: #e0e0e0;
+
+  --modal-bg-color: tomato;
+}

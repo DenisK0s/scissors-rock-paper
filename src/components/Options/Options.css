@@ -1,0 +1,25 @@
+.options-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 20px;
+
+  width: 600px;
+
+  margin-inline: auto;
+}
+
+.options-list__item {
+}
+
+.options-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 150px;
+  height: 300px;
+
+  background-color: aqua;
+}

@@ -1,0 +1,17 @@
+.bet-results {
+  width: 800px;
+  height: 50vh;
+
+  margin-top: 20px;
+
+  outline: 1px solid #ffff;
+}
+
+.play-page-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}

@@ -1,42 +1,20 @@
 // modules
 import React, { FC } from "react";
-import styled from "styled-components";
+// import { Link } from "react-router-dom";
+
+// styles
+import "views/views-style-modules/GreetingPage.css";
 
 // components
-import Title from "components/Utils/Title";
-import Button from "components/Utils/Button";
-
-const StyledGreetingBox = styled.div`
-  position: absolute;
-  inset: 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  color: #fff;
-
-  background-color: black;
-
-  pointer-events: none;
-`;
-
-const StyledGreetingContent = styled.p`
-  margin-top: 15px;
-  width: 30vw;
-  height: 30vw;
-
-  outline: 1px solid #ffff;
-`;
+import Link from "components/Utils/CustomLink";
 
 const GreetingPage: FC = () => {
   return (
-    <StyledGreetingBox>
-      <Title label="Hello my friend !!!" />
-      <StyledGreetingContent />
-      <Button label="Let's go" />
-    </StyledGreetingBox>
+    <div className="greeting-box">
+      <h1>Scissors Rock Paper</h1>
+      <p className="instructions"></p>
+      <Link to="/choise">Let's go</Link>
+    </div>
   );
 };
 

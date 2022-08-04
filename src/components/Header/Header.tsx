@@ -1,18 +1,20 @@
+// modules
 import React, { FC } from "react";
 
-// styled components
-import { StyledHeader, HeaderContainer } from "./Header.styled";
+// styles
+import "./Header.css";
 
 // components
 import StatsBar from "components/StatsBar";
+import Container from "components/Utils/Container";
 
 const Header: FC = () => {
   return (
-    <StyledHeader>
-      <HeaderContainer>
+    <header className="header">
+      <Container className="header__container">
         <StatsBar />
-      </HeaderContainer>
-    </StyledHeader>
+      </Container>
+    </header>
   );
 };
 

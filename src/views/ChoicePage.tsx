@@ -1,15 +1,24 @@
 // modules
 import React, { FC } from "react";
 
-// styled components
+// styles
+import "views/views-style-modules/ChoisePage.css";
 
 // components
+import BetPanel from "components/BetPanel";
+import Options from "components/Options";
+import Link from "components/Utils/CustomLink";
+
+// data
+import { optsData } from "options/optsData";
 
 const ChoicePage: FC = () => {
   return (
-    <div>
-      <h1>This is ChoicePage</h1>
-    </div>
+    <>
+      <BetPanel />
+      <Options items={optsData} />
+      <Link to="/play">Start</Link>
+    </>
   );
 };
 

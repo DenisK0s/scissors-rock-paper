@@ -2,8 +2,8 @@
 import React, { FC } from "react";
 import { Outlet } from "react-router-dom";
 
-// styled components
-import { Main } from "./Layout.styled";
+// styles
+import "./Layout.css";
 
 // components
 import Header from "components/Header";
@@ -13,11 +13,11 @@ const Layout: FC = () => {
   return (
     <>
       <Header />
-      <Main>
+      <main className="main-section">
         <Container>
           <Outlet />
         </Container>
-      </Main>
+      </main>
     </>
   );
 };

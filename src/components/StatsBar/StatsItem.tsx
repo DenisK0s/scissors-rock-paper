@@ -1,8 +1,8 @@
 //modules
 import React, { FC } from "react";
 
-// styled components
-import { StyledStatsItem } from "./StatsBar.styled";
+// styles
+import "./StatsBar.css";
 
 interface StatsItemProps {
   label: string;
@@ -11,9 +11,9 @@ interface StatsItemProps {
 
 const StatsItem: FC<StatsItemProps> = ({ label, value }) => {
   return (
-    <StyledStatsItem>
+    <p className="stats-bar__item">
       {label}: {value}
-    </StyledStatsItem>
+    </p>
   );
 };
 

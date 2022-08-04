@@ -1,11 +1,8 @@
 // modules
 import React, { FC } from "react";
-import styled from "styled-components";
 
-const StyledTitle = styled.h3`
-  font-size: 30px;
-  font-weight: 800;
-`;
+// styles
+// import s from "./Title.module.css";
 
 interface PropsTitle {
   label?: string;
@@ -13,7 +10,7 @@ interface PropsTitle {
 }
 
 const Title: FC<PropsTitle> = ({ label, className }) => {
-  return <StyledTitle className={className}>{label}</StyledTitle>;
+  return <h1 className={className}>{label}</h1>;
 };
 
 export default Title;

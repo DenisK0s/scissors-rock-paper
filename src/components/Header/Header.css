@@ -1,0 +1,15 @@
+.header {
+  background-color: var(--secondary-bg-color);
+  box-shadow: var(--box-shadow-color) 0px 8px 24px;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+
+  padding-block: 10px;
+
+  outline: 1px solid #ffff;
+}

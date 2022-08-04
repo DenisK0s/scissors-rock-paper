@@ -1,0 +1,24 @@
+.bet-content-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
+  height: 100px;
+
+  outline: 1px solid #ffff;
+}
+
+.bet-content-item {
+  width: 200px;
+  height: 100%;
+
+  outline: 1px solid #ffff;
+}
+
+.player-name {
+  outline: 1px solid #ffff;
+}
+
+.bet-amount {
+  outline: 1px solid #ffff;
+}
