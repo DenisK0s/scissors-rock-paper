@@ -10,8 +10,6 @@
   color: #fff;
 
   background-color: black;
-
-  /* pointer-events: none; */
 }
 
 .instructions {
@@ -20,4 +18,18 @@
   height: 30vw;
 
   outline: 1px solid #ffff;
+}
+
+.set-name-box {
+  display: flex;
+  align-items: center;
+  margin-block: 20px;
+  padding: 5px;
+}
+
+.set-name-box__input {
+}
+
+.set-name-box__button {
+  margin-left: 10px;
 }

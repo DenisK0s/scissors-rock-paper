@@ -1,6 +1,10 @@
-.choise-page__link {
+.choise-page__content-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.choise-page__link {
+  margin-top: 80px;
 }

@@ -1,5 +1,5 @@
 // modules
-import React, { FC } from "react";
+import React, { FC, ReactEventHandler } from "react";
 
 // styles
 import "./Button.css";

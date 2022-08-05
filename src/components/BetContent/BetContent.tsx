@@ -4,16 +4,16 @@ import React, { FC } from "react";
 // styles
 import "./BetContent.css";
 
-// components
+// componentsx
 
 const BetContent: FC = () => {
   return (
     <div className="bet-content-box">
-      <div className="bet-content-item">
+      <div className="bet-content-box__item">
         <h2 className="player-name">{}</h2>
         <p className="bet-amount">{}</p>
       </div>
-      <div className="bet-content-item">
+      <div className="bet-content-box__item">
         <h2 className="player-name">{}</h2>
         <p className="bet-amount">{}</p>
       </div>

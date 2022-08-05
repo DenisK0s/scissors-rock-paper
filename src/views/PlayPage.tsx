@@ -8,17 +8,18 @@ import "views/views-style-modules/PlayPage.css";
 import Button from "components/Utils/Button";
 import Link from "components/Utils/CustomLink";
 import BetContent from "components/BetContent";
+import BetResults from "components/BetResults";
 
 const PlayPage: FC = () => {
   return (
-    <>
-      <Link to="/choise">New bet</Link>
-      <div className="play-page-content-wrapper">
-        <BetContent />
-        <div className="bet-results"></div>
-        <Button>Play</Button>
-      </div>
-    </>
+    <div className="play-page-content-wrapper">
+      <Link to="/choise" extendClassName="play-page__next-bet-link">
+        New round
+      </Link>
+      <BetContent />
+      <BetResults />
+      <Button>Play</Button>
+    </div>
   );
 };
 
