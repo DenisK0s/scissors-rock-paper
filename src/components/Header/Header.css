@@ -1,6 +1,6 @@
 .header {
-  background-color: var(--secondary-bg-color);
-  box-shadow: var(--box-shadow-color) 0px 8px 24px;
+  background-color: var(--primary-bg-color);
+  box-shadow: 0 20px 20px -5px #fff;
 }
 
 .header__container {
@@ -10,6 +10,4 @@
   height: 70px;
 
   padding-block: 10px;
-
-  outline: 1px solid #ffff;
 }

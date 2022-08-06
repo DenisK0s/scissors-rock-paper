@@ -6,7 +6,7 @@ import "./StatsBar.css";
 
 interface StatsItemProps {
   label: string;
-  value: number;
+  value: number | undefined | null;
 }
 
 const StatsItem: FC<StatsItemProps> = ({ label, value }) => {

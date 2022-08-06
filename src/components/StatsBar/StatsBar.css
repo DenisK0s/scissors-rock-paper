@@ -4,13 +4,17 @@
   justify-content: space-between;
   width: 100%;
   max-width: 500px;
-  outline: 1px solid #ffff;
+  /* outline: 1px solid #ffff; */
 }
 
 .stats-bar__item {
-  width: 120px;
+  min-width: 120px;
   padding: 5px;
-  color: #ffff;
+  color: var(--accent-color);
+
+  font-weight: 700;
   text-transform: capitalize;
-  outline: 1px solid #ffff;
+
+  text-align: center;
+  /* outline: 1px solid #ffff; */
 }

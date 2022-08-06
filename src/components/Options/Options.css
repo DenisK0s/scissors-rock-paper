@@ -12,15 +12,20 @@
 /* .options-list__item {
 } */
 
-.options-card {
+.option-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
   width: 150px;
-  height: 150px;
+  height: 200px;
 
-  background-color: aqua;
+  background-color: var(--accent-lite-color);
 
   border-radius: 5px;
+}
+
+.option-card__label {
+  margin-top: 20px;
 }

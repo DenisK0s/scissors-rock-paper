@@ -7,12 +7,17 @@ import "./BetResults.css";
 // icons
 import { ReactComponent as VersusIcon } from "assets/icons/versus-icon.svg";
 
-const BetResults: FC = () => {
+interface BetResultsProps {
+  playerOption: string;
+  computerOption: string;
+}
+
+const BetResults: FC<BetResultsProps> = ({ playerOption, computerOption }) => {
   return (
     <div className="bet-results-box">
-      <h2 className="bet-results-box__title">One</h2>
+      <h2 className="bet-results-box__title">{playerOption}</h2>
       <VersusIcon className="bet-results-box__icon" />
-      <h2 className="bet-results-box__title">Two</h2>
+      <h2 className="bet-results-box__title">{computerOption}</h2>
     </div>
   );
 };

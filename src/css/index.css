@@ -4,6 +4,7 @@ html {
 
 body {
   margin: 0;
+  height: 100vh;
   font-family: "Nunito Sans", sans-serif;
   color: rgb(17, 21, 23);
   font-weight: 300;

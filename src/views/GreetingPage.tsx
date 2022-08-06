@@ -28,7 +28,28 @@ const GreetingPage: FC = () => {
   return (
     <div className="greeting-box">
       <h1>Scissors Rock Paper</h1>
-      <p className="instructions"></p>
+      <p className="instructions">
+        ***************************************
+        <br />
+        Dear friend glad to see you here !<br />
+        Before you start check out this short guide
+        <br />
+        First of all set your name or nickname
+        <br />
+        On the next page you need to place a bet
+        <br />
+        You can only bet on one or two positions
+        <br />
+        At the same time, when betting on one position, the coefficient is <b>"14"</b>
+        <br />
+        But if a bet is made on two positions, then the coefficient is <b>"3"</b>
+        <br />
+        After the bets have taken place
+        <br />
+        Press the button "Start Game" and go to the final page
+        <br />
+        Good luck and enjoy the game! ***************************************
+      </p>
       <div className="set-name-box">
         <input
           type="text"

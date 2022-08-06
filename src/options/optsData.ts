@@ -1,14 +1,17 @@
 export const optsData = [
   {
     id: "scissors",
-    name: "Scissors",
+    optionName: "Scissors",
+    bet: 0,
   },
   {
     id: "rock",
-    name: "Rock",
+    optionName: "Rock",
+    bet: 0,
   },
   {
     id: "paper",
-    name: "Paper",
+    optionName: "Paper",
+    bet: 0,
   },
 ];

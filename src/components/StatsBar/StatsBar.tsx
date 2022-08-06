@@ -1,5 +1,6 @@
 //modules
 import React, { FC } from "react";
+import { useData } from "context";
 
 // styles
 import "./StatsBar.css";
@@ -7,14 +8,18 @@ import "./StatsBar.css";
 // components
 import StatsItem from "./StatsItem";
 
-interface StatsBarProps {}
+const StatsBar: FC = () => {
+  const data = useData();
 
-const StatsBar: FC<StatsBarProps> = () => {
+  const currentBalance = data?.data.balance;
+  const betsAmount = data?.data.betsAmount;
+  const winningAmount = data?.data.winningAmount;
+
   return (
     <div className="stats-bar">
-      <StatsItem label="Balance" value={0} />
-      <StatsItem label="Bet" value={0} />
-      <StatsItem label="Win" value={0} />
+      <StatsItem label="Balance" value={currentBalance} />
+      <StatsItem label="Bet" value={betsAmount} />
+      <StatsItem label="Win" value={winningAmount} />
     </div>
   );
 };

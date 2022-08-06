@@ -1,16 +1,24 @@
 :root {
-  --primary-text-color: #000000;
-  --secondary-text-color: #ffffff;
-  --placeholder-text-color: rgb(189, 189, 189);
+  /* colors */
+  --primary-text-color: rgb(112, 112, 112);
+  --secondary-text-color: rgb(255, 255, 255);
+  --primary-bg-color: rgb(33, 33, 33);
+  --secondary-bg-color: rgb(158, 158, 158);
+  --accent-color: rgb(255, 171, 64);
+  --accent-lite-color: rgb(255, 171, 64, 0.8);
+  --accent--button-color: rgb(158, 158, 158, 0.6);
+  --error-text-color: rgb(255, 61, 0);
 
-  --error-text-color: #ff0000;
+  /* fonst styles */
+  --main-font: "Lato", sans-serif;
+  --title-font: ;
 
-  --primary-bg-color: rgb(189, 189, 189);
-  --secondary-bg-color: rgb(32, 44, 55);
+  --basic-font-size: 20px;
+  /* --main-title-font-size: rgb(32, 44, 55); */
+  /* --second-title-font-size: #ff0000; */
 
-  --box-shadow-color: #e7eaf2;
+  /* --normal-font-weigth: rgb(189, 189, 189); */
+  /* --bold-font-weigth: rgb(32, 44, 55); */
 
-  --placeholder-icon-color: #e0e0e0;
-
-  --modal-bg-color: tomato;
+  --box-shadow-color: rgb(231, 234, 242);
 }

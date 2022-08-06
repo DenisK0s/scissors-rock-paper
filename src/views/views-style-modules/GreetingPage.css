@@ -1,5 +1,5 @@
 .greeting-box {
-  position: absolute;
+  position: fixed;
   inset: 0;
 
   display: flex;
@@ -7,17 +7,30 @@
   align-items: center;
   justify-content: center;
 
-  color: #fff;
+  color: rgb(255, 255, 255);
 
-  background-color: black;
+  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    url("../../assets/images/1585556930_45544.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .instructions {
-  margin-top: 15px;
   width: 30vw;
   height: 30vw;
+  margin-top: 15px;
+  padding: 10px;
 
-  outline: 1px solid #ffff;
+  text-align: center;
+
+  font-size: var(--basic-font-size);
+  font-family: var(--main-font);
+  font-weight: 400;
+  line-height: 30px;
+  color: var(--primary-text-color);
+
+  background-color: rgb(255, 255, 255, 0.9);
+  box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.3);
 }
 
 .set-name-box {
@@ -28,8 +41,20 @@
 }
 
 .set-name-box__input {
+  width: 120px;
+  height: 30px;
+
+  padding-inline: 10px;
+  padding-block: 5px;
+
+  background-color: transparent;
+  outline: none;
+
+  background-color: var(--accent--button-color);
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .set-name-box__button {
+  height: 30px;
   margin-left: 10px;
 }

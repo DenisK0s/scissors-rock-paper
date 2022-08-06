@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
 
-  width: 500px;
+  width: 600px;
   height: 100px;
 
   margin-top: 20px;
@@ -14,14 +14,21 @@
 .bet-content-box__item {
   width: 200px;
   height: 100%;
+  padding: 10px;
 
   outline: 1px solid #ffff;
 }
 
 .player-name {
+  height: 30px;
   outline: 1px solid #ffff;
+  text-align: center;
 }
 
 .bet-amount {
   outline: 1px solid #ffff;
+}
+
+.bet-option {
+  margin-top: 10px;
 }
