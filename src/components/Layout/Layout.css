@@ -1,7 +1,6 @@
 .main-section {
   height: 100vh;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background-color: var(--secondary-bg-color);
-  /* outline: 1px solid #ffff; */
 }

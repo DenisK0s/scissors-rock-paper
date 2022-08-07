@@ -2,6 +2,8 @@
 import { FC, useState, useRef } from "react";
 import { useData } from "context";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import Confetti from "react-confetti";
 
 // styles
 import "views/views-style-modules/PlayPage.css";
@@ -19,16 +21,46 @@ import { compareBets } from "helpers/compareBets";
 // types
 import { IOption } from "types/commonTypes";
 
+// options
+import coefficients from "options/coefficients";
+
 const PlayPage: FC = () => {
   const [isResult, setIsResult] = useState(false);
   const [resultOption, setResultOption] = useState("");
+  const [resultStatus, setResultStatus] = useState("");
   const [counter, setCounter] = useState<number>(0);
   const data = useData();
   const randomBet = useRef(getRandomBet());
+  const navigate = useNavigate();
   let timerId: any;
 
   const playerName = data?.data.name;
   const options = data?.data.options;
+  const balance = data?.data.balance;
+
+  if (balance === 0) {
+    (() => {
+      let counter = 0;
+      let zуroBalanceTimerId = setInterval(() => {
+        counter++;
+        if (counter === 2) {
+          Swal.fire({
+            title: "Unfortunately your balance is 0?",
+            confirmButtonColor: "rgba(118, 255, 3, 0.6)",
+            confirmButtonText: "Start new game!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              data?.actions.startNewGame();
+              navigate("/");
+            }
+          });
+        }
+        if (counter === 2) {
+          clearInterval(zуroBalanceTimerId);
+        }
+      }, 2000);
+    })();
+  }
   const activeOptions = options?.filter((opt) => opt.bet !== 0) as IOption[];
   const computerBet = randomBet.current;
 
@@ -57,10 +89,9 @@ const PlayPage: FC = () => {
       setResultOption(playerBetOption);
 
       if (playResult === "won") {
-        const increasedBet = playerBet * 14;
+        setResultStatus("won");
+        const increasedBet = playerBet * coefficients.SUPER_COEFICIENT;
         data?.actions.takeWinningAmount(increasedBet);
-
-        console.log("you won", increasedBet);
         Swal.fire({
           position: "center",
           title: `Congratulations you won ${increasedBet}`,
@@ -72,6 +103,7 @@ const PlayPage: FC = () => {
       }
 
       if (playResult === "loss") {
+        setResultStatus("loss");
         Swal.fire({
           position: "center",
           title: "Unfortunately this time you lost",
@@ -96,20 +128,22 @@ const PlayPage: FC = () => {
       setResultOption(playerBetOption);
 
       if (playResult === "won") {
-        const increasedBet = playerBet * 3;
+        setResultStatus("won");
+        const increasedBet = playerBet * coefficients.BASE_COEFICIENT;
+        data?.actions.takeWinningAmount(increasedBet);
 
         Swal.fire({
-          position: "top-end",
+          position: "center",
           title: `Congratulations you won ${increasedBet}`,
           showConfirmButton: false,
           timer: 1500,
         });
 
-        data?.actions.takeWinningAmount(increasedBet);
         data?.actions.increaseBalance(increasedBet);
       }
 
       if (playResult === "loss") {
+        setResultStatus("loss");
         Swal.fire({
           position: "center",
           title: "Unfortunately this time you lost",
@@ -131,60 +165,65 @@ const PlayPage: FC = () => {
       const playResults2 = compareBets(playerBetOption2, computerBet);
 
       if (playResults1 === "won") {
+        setResultStatus("won");
         setResultOption(playerBetOption1);
-        const increasedBet = playerBet1 * 3;
-
-        Swal.fire(`Congratulations you won ${increasedBet}`);
-
+        const increasedBet = playerBet1 * coefficients.BASE_COEFICIENT;
         data?.actions.takeWinningAmount(increasedBet);
+
+        Swal.fire({
+          position: "center",
+          title: `Congratulations you won ${increasedBet}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
         data?.actions.increaseBalance(increasedBet);
       }
 
       if (playResults2 === "won") {
+        setResultStatus("won");
         setResultOption(playerBetOption2);
-        const increasedBet = playerBet2 * 3;
-
-        Swal.fire(`Congratulations you won ${increasedBet}`);
+        const increasedBet = playerBet2 * coefficients.BASE_COEFICIENT;
         data?.actions.takeWinningAmount(increasedBet);
+
+        Swal.fire({
+          position: "center",
+          title: `Congratulations you won ${increasedBet}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
         data?.actions.increaseBalance(increasedBet);
-      }
-
-      if (playResults1 === "loss") {
-        Swal.fire({
-          position: "center",
-          title: "Unfortunately this time you lost",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        data?.actions.decreaseBalance(playerBet1);
-      }
-
-      if (playResults2 === "loss") {
-        Swal.fire({
-          position: "center",
-          title: "Unfortunately this time you lost",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        data?.actions.decreaseBalance(playerBet2);
       }
     }
   };
 
+  const resetBets = () => data?.actions.resetAllactiveBets();
+
   return (
     <div className="play-page-content-wrapper">
-      <Link to="/choise" extendClassName="play-page__next-round-link">
+      <Confetti tweenDuration={10000} run={resultStatus === "won"} recycle={false} />
+      <Link to="/choise" extendClassName="play-page__next-round-link" onClick={resetBets}>
         New round
       </Link>
       <BetContent playerName={playerName} betOptions={activeOptions} />
       <div className="bet-results-box__wrapper">
         {isResult ? (
-          <BetResults playerOption={resultOption} computerOption={computerBet} />
+          <BetResults
+            playerOption={resultOption}
+            computerOption={computerBet}
+            result={resultStatus}
+          />
         ) : (
-          <div className="waiting-results-box">{counter}</div>
+          <div className="waiting-results-box">
+            <p className="waiting-results-counter">{counter}</p>
+          </div>
         )}
       </div>
-      <Button extendClassName="play-page__button" onClick={() => timer(playHandler)}>
+      <Button
+        extendClassName="play-page__button"
+        onClick={() => timer(playHandler)}
+        disabled={isResult}>
         Play
       </Button>
     </div>

@@ -1,5 +1,5 @@
 // modules
-import React, { FC } from "react";
+import { FC } from "react";
 
 // styles
 import "./Header.css";

@@ -1,24 +1,17 @@
 :root {
   /* colors */
-  --primary-text-color: rgb(112, 112, 112);
-  --secondary-text-color: rgb(255, 255, 255);
+  --primary-text-color: rgb(255, 255, 255);
+  --secondary-text-color: rgb(112, 112, 112);
   --primary-bg-color: rgb(33, 33, 33);
   --secondary-bg-color: rgb(158, 158, 158);
+  --extra-bg-color: rgb(112, 112, 112);
   --accent-color: rgb(255, 171, 64);
   --accent-lite-color: rgb(255, 171, 64, 0.8);
   --accent--button-color: rgb(158, 158, 158, 0.6);
+  --success-color: rgb(118, 255, 3);
+  --success-lite-color: rgba(118, 255, 3, 0.6);
   --error-text-color: rgb(255, 61, 0);
-
-  /* fonst styles */
-  --main-font: "Lato", sans-serif;
-  --title-font: ;
-
-  --basic-font-size: 20px;
-  /* --main-title-font-size: rgb(32, 44, 55); */
-  /* --second-title-font-size: #ff0000; */
-
-  /* --normal-font-weigth: rgb(189, 189, 189); */
-  /* --bold-font-weigth: rgb(32, 44, 55); */
-
+  --error-lite-color: rgba(255, 61, 0, 0.6);
+  --border-color: rgba(112, 112, 112, 0.2);
   --box-shadow-color: rgb(231, 234, 242);
 }

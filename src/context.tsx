@@ -6,7 +6,11 @@ import Swal from "sweetalert2";
 import { IData, IActions, DataContextType } from "types/contextDataTypes";
 import { IOption } from "types/commonTypes";
 
+// options
 import { optsData } from "./options/optsData";
+
+// hooks
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 interface DataProviderProps {
   children?: React.ReactNode;
@@ -15,17 +19,26 @@ interface DataProviderProps {
 const DataContext = createContext<DataContextType | null>(null);
 
 export const DataProvider: FC<DataProviderProps> = ({ children }) => {
+  const [balance, setBalance] = useLocalStorage(5000, "currentBalance");
   const [betsAmount, setBetsAmount] = useState<number>(0);
   const [options, setOptions] = useState<IOption[]>(optsData);
   const [name, setName] = useState("");
-  const [balance, setBalance] = useState(5000);
   const [winningAmount, setWinningAmount] = useState<number>(0);
 
   const isbetsAmountMoreThanBalance = betsAmount >= balance;
   const activeOpts = options?.filter((opt) => opt.bet !== 0) as IOption[];
   const activeOptsQuantity = activeOpts.length;
 
-  const insertName = (value: string) => setName(value);
+  const insertName = (value: string) => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Your name has been saved",
+      showConfirmButton: false,
+      timer: 1000,
+    });
+    setName(value);
+  };
   const increaseOptionBet = (id: string) => {
     if (isbetsAmountMoreThanBalance) {
       Swal.fire("bets amount can't be more than current balance !");
@@ -37,11 +50,6 @@ export const DataProvider: FC<DataProviderProps> = ({ children }) => {
         if (opt.bet === balance) {
           Swal.fire("Not enough balance !");
         }
-
-        // if (activeOpts.length === 2) {
-        //   Swal.fire("You can only bet on two options !");
-        //   return opt;
-        // }
 
         const increasedBet = (opt.bet += 500);
 
@@ -78,13 +86,35 @@ export const DataProvider: FC<DataProviderProps> = ({ children }) => {
     return findedOpts.bet;
   };
   const increaseBalance = (value: number) => {
-    setBalance((prevBalance) => (prevBalance += value));
+    setBalance((prevBalance: number) => (prevBalance += value));
   };
   const decreaseBalance = (value: number) => {
-    setBalance((prevBalance) => (prevBalance -= value));
+    setBalance((prevBalance: number) => {
+      if (balance === 0) {
+        Swal.fire("You have 0 balance !");
+      }
+      return (prevBalance -= value);
+    });
   };
   const takeWinningAmount = (value: number) => {
     setWinningAmount(value);
+  };
+  const getCurrentBalance = () => {
+    return balance;
+  };
+  const resetAllactiveBets = () => {
+    const zeroRates = options?.map((opt) => {
+      return { ...opt, bet: 0 };
+    }) as IOption[];
+
+    setOptions(zeroRates);
+    setBetsAmount(0);
+    setWinningAmount(0);
+  };
+  const startNewGame = () => {
+    localStorage.removeItem("currentBalance");
+    resetAllactiveBets();
+    setBalance(5000);
   };
 
   const data: IData = {
@@ -99,12 +129,14 @@ export const DataProvider: FC<DataProviderProps> = ({ children }) => {
   const actions: IActions = {
     insertName,
     getCurrentOptBet,
-    // getActiveOptions,
     increaseOptionBet,
     decreaseOptionBet,
     increaseBalance,
     decreaseBalance,
     takeWinningAmount,
+    resetAllactiveBets,
+    startNewGame,
+    getCurrentBalance,
   };
 
   return <DataContext.Provider value={{ data, actions }}>{children}</DataContext.Provider>;

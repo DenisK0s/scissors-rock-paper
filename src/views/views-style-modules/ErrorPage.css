@@ -1,0 +1,16 @@
+.error-page-wpapper {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--extra-bg-color);
+}
+
+.error-page-title {
+  color: var(--error-lite-color);
+  text-shadow: 1px 1px 2px var(--primary-text-color);
+}

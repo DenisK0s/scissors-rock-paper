@@ -4,8 +4,12 @@
 
   text-align: center;
 
-  color: inherit;
+  color: rgb(255, 255, 255);
 
-  border: 1px solid #fff;
-  border-radius: 5px;
+  border: 1px solid var(--accent-color);
+}
+
+.custom-link:hover,
+.custom-link:focus {
+  box-shadow: 0px 8px 26px rgba(255, 255, 255, 0.6);
 }

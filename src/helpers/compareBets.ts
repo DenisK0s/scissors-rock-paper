@@ -43,10 +43,8 @@ export const compareBets = (playerBet: string, computerBet: string) => {
   }
 
   const comparisonString = createComparisonString(playerBet, computerBet);
-  console.log("comparisonString", comparisonString);
 
   const comparisonResult = comparisonBets(comparisonString);
-  console.log("comparisonResult", comparisonResult);
 
   return comparisonResult;
 };

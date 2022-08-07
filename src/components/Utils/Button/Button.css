@@ -6,8 +6,3 @@
 
   border-radius: 5px;
 }
-
-.button:hover,
-.button:focus {
-  background-color: var(--accent--button-color);
-}

@@ -1,5 +1,6 @@
 // modules
 import React, { FC, useState } from "react";
+import Swal from "sweetalert2";
 
 // styles
 import "views/views-style-modules/GreetingPage.css";
@@ -15,6 +16,7 @@ const GreetingPage: FC = () => {
   const [playerName, setPlayerName] = useState("");
 
   const data = useData();
+  const isNameExist = data?.data.name;
 
   const inputNameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPlayerName(e.target.value);
@@ -25,9 +27,17 @@ const GreetingPage: FC = () => {
     setPlayerName("");
   };
 
+  const correctPath = !isNameExist ? "/" : "/choise";
+
+  const checkAreActiveOptsExist = () => {
+    if (!isNameExist) {
+      Swal.fire("You haven't set your name !");
+    }
+  };
+
   return (
     <div className="greeting-box">
-      <h1>Scissors Rock Paper</h1>
+      <h1 className="greeting-page-title">Scissors Rock Paper</h1>
       <p className="instructions">
         ***************************************
         <br />
@@ -62,7 +72,12 @@ const GreetingPage: FC = () => {
           Set name
         </Button>
       </div>
-      <Link to="/choise">Let's go</Link>
+      <Link
+        to={correctPath}
+        extendClassName="greeting-page__link"
+        onClick={checkAreActiveOptsExist}>
+        Let's go
+      </Link>
     </div>
   );
 };

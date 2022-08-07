@@ -1,10 +1,9 @@
 // modules
-import React, { FC, useEffect, lazy } from "react";
+import { FC } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // components
 import Layout from "components/Layout";
-// import Loader from "components/utils/Loader";
 
 // views
 import GreetingPage from "views/GreetingPage";

@@ -1,14 +1,13 @@
 // modules
-import React, { FC } from "react";
+import { FC } from "react";
 
-// styled components
-
-// components
+// styles
+import "views/views-style-modules/ErrorPage.css";
 
 const ErrorPage: FC = () => {
   return (
-    <div>
-      <h1>This is ErrorPage</h1>
+    <div className="error-page-wpapper">
+      <h1 className="error-page-title">Oops something went wrong!</h1>
     </div>
   );
 };

@@ -11,12 +11,14 @@ export interface IData {
 export interface IActions {
   insertName: (value: string) => void;
   getCurrentOptBet: (id: string) => number;
-  // getActiveOptions: () => IOption[];
   increaseOptionBet: (id: string) => void;
   decreaseOptionBet: (id: string) => void;
   increaseBalance: (value: number) => void;
   decreaseBalance: (value: number) => void;
   takeWinningAmount: (value: number) => void;
+  resetAllactiveBets: () => void;
+  startNewGame: () => void;
+  getCurrentBalance: () => number;
 }
 
 export type DataContextType = {

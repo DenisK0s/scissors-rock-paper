@@ -1,6 +1,5 @@
 .bet-panel {
   width: 100px;
-  /* margin-inline: auto; */
 
   display: flex;
   justify-content: space-between;
@@ -18,19 +17,22 @@
   height: 50px;
 
   background-color: rgba(255, 255, 255, 0.5);
-  /* border: 1px solid #fff; */
   border-radius: 50%;
+
+  box-shadow: 0px 8px 26px rgba(0, 0, 0, 0.2);
 }
-/* 
-.bet-button {
-} */
 
 .bet-icon {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
 }
-/* .bet-button:hover,
-.bet-button:focus,
- {
 
-} */
+.bet-icon-plus:hover,
+.bet-icon-plus:focus {
+  fill: rgb(118, 255, 3);
+}
+
+.bet-icon-minus:hover,
+.bet-icon-minus:focus {
+  fill: rgb(255, 61, 0);
+}
