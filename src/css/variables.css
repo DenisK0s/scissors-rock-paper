@@ -14,4 +14,7 @@
   --error-lite-color: rgba(255, 61, 0, 0.6);
   --border-color: rgba(112, 112, 112, 0.2);
   --box-shadow-color: rgb(231, 234, 242);
+
+  --main-font: "Lato", sans-serif;
+  --basic-font-size: 15px;
 }

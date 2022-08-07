@@ -14,6 +14,9 @@ import Link from "components/Utils/CustomLink";
 import BetContent from "components/BetContent";
 import BetResults from "components/BetResults";
 
+// images
+import cover from "assets/images/VS44OixoGv0.jpg";
+
 // helpers
 import { getRandomBet } from "helpers/getRandomBet";
 import { compareBets } from "helpers/compareBets";
@@ -216,6 +219,7 @@ const PlayPage: FC = () => {
           />
         ) : (
           <div className="waiting-results-box">
+            <img src={cover} alt="scissors rock paper game" className="waiting-results-image" />
             <p className="waiting-results-counter">{counter}</p>
           </div>
         )}

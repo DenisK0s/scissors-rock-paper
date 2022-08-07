@@ -58,7 +58,9 @@ const GreetingPage: FC = () => {
         <br />
         Press the button "Start Game" and go to the final page
         <br />
-        Good luck and enjoy the game! ***************************************
+        Good luck and enjoy the game!
+        <br />
+        ***************************************
       </p>
       <div className="set-name-box">
         <input

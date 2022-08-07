@@ -16,8 +16,8 @@
 }
 
 .instructions {
-  width: 30vw;
-  height: 30vw;
+  width: 480px;
+  height: auto;
   margin-top: 15px;
   padding: 10px;
 
