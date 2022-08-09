@@ -1,5 +1,5 @@
 // modules
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useData } from "context";
 import Swal from "sweetalert2";
 

@@ -7,10 +7,22 @@
   height: 100px;
 }
 
+@media (max-width: 767px) {
+  .bet-content-box {
+    max-width: 600px;
+  }
+}
+
 .bet-content-box__item {
   width: 200px;
   height: 100%;
   padding: 10px;
+}
+
+@media (max-width: 767px) {
+  .bet-content-box__item + .bet-content-box__item {
+    margin-left: 30px;
+  }
 }
 
 .player-name {

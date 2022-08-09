@@ -15,6 +15,12 @@
   --border-color: rgba(112, 112, 112, 0.2);
   --box-shadow-color: rgb(231, 234, 242);
 
+  /* font styles */
   --main-font: "Lato", sans-serif;
   --basic-font-size: 15px;
+
+  /* brakepoints */
+  --mobile: 320px;
+  --tablet: 768px;
+  --desktop: 1024px;
 }

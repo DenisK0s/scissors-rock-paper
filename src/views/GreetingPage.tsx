@@ -1,5 +1,5 @@
 // modules
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
 // styles
@@ -14,6 +14,13 @@ import { useData } from "context";
 
 const GreetingPage: FC = () => {
   const [playerName, setPlayerName] = useState("");
+
+  useEffect(() => {
+    const body = document.querySelector("#body") as HTMLBodyElement | null;
+    if (body !== null) {
+      body.style.overflow = "hidden";
+    }
+  }, []);
 
   const data = useData();
   const isNameExist = data?.data.name;

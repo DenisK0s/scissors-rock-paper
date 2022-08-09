@@ -219,7 +219,13 @@ const PlayPage: FC = () => {
           />
         ) : (
           <div className="waiting-results-box">
-            <img src={cover} alt="scissors rock paper game" className="waiting-results-image" />
+            <img
+              src={cover}
+              alt="scissors rock paper game"
+              className="waiting-results-image"
+              width="500"
+              height="374"
+            />
             <p className="waiting-results-counter">{counter}</p>
           </div>
         )}
